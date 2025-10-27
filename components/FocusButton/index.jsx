@@ -1,15 +1,12 @@
 import { Pressable, StyleSheet, Text } from "react-native";
-import React from 'react';
-import Svg, { Path } from 'react-native-svg';
+
 
 
 export const FocusButton = ({ onPress, title, icon }) => {
   return (
     <Pressable
-
       style={({ pressed }) => [
         styles.button,
-
         pressed && styles.pressed,
       ]}
       onPress={onPress}
@@ -47,9 +44,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   pressed: {
-
     opacity: 0.8,
-
     transform: [{ scale: 0.98 }],
   }
 });

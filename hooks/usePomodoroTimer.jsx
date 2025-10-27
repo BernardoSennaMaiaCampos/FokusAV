@@ -1,15 +1,11 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 
-
-
-
 export function usePomodoroTimer(initialTimerType, pomodoroTypes) {
   const [timerType, setTimerType] = useState(initialTimerType);
   const [seconds, setSeconds] = useState(initialTimerType.initialValue);
   const [isRunning, setIsRunning] = useState(false);
 
   const timerRef = useRef(null);
-
 
   const stopTimer = useCallback(() => {
     if (timerRef.current !== null) {
@@ -19,13 +15,11 @@ export function usePomodoroTimer(initialTimerType, pomodoroTypes) {
     }
   }, []);
 
-
   useEffect(() => {
     return () => {
       stopTimer();
     };
   }, [stopTimer]);
-
 
   const changeTimerType = useCallback((newTimerType) => {
     setTimerType(newTimerType);

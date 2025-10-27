@@ -22,17 +22,13 @@ export const ActionButton = ({ isActive, onPress, title }) => {
 
 const styles = StyleSheet.create({
   button: {
-
     padding: 8,
     borderRadius: 8,
-
   },
   activeButton: {
-
     backgroundColor: '#144480',
   },
   activeText: {
-
     color: '#FFFFFF',
   },
   buttonText: {
@@ -41,7 +37,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   pressed: {
-
     opacity: 0.7,
   }
 });

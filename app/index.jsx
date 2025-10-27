@@ -43,7 +43,7 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      {}
+      {/* */}
       {timerType.image && <Image source={timerType.image} />}
 
       <View style={styles.acoes}>
