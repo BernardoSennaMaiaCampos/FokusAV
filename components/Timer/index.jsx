@@ -1,23 +1,27 @@
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text } from "react-native";
+import React from 'react';
+import Svg, { Path } from 'react-native-svg';
 
-export function Timer({ totalSeconds }) {
-    const date = new Date(totalSeconds * 1000)
-    const options = { minute: "2-digit", second: "2-digit" }
+import { formatTimer } from '../utils/formatTimer';
+
+
+export const Timer = ({ totalSeconds = 0 }) => {
+    const formattedTime = formatTimer(totalSeconds);
 
     return (
         <Text style={styles.timer}>
-            {date.toLocaleTimeString("pt-br", options)}
+            {formattedTime}
         </Text>
     );
-}
+};
 
-const styles = StyleSheet.create(
-  {
+const styles = StyleSheet.create({
     timer: {
       fontSize: 54,
       color: '#FFF',
       fontWeight: 'bold',
-      textAlign: "center",
-    },
+      textAlign: 'center',
 
-})
+      minWidth: 150,
+    }
+});

@@ -1,32 +1,47 @@
-import { Pressable, StyleSheet, Text  } from 'react-native';
-
-export function ActionButton( { active, onPress, display } ) {
-    return (
-
-        <Pressable
-            style={ active ? styles.contextButtonActive : null}
-            onPress={onPress}
-        >
-            <Text style={styles.contextButtonText}>
-                {display}
-            </Text>
-        </Pressable>
-    );
+import { Pressable, StyleSheet, Text } from "react-native";
 
 
-}
+export const ActionButton = ({ isActive, onPress, title }) => {
+  return (
+    <Pressable
 
-const styles = StyleSheet.create(
-  {
-    contextButtonActive: {
-      backgroundColor: '#144480',
-      borderRadius: 8,
-    },
-    contextButtonText: {
-      fontSize: 12.5,
-      color: '#FFF',
-      padding: 8,
-    },
+      style={({ pressed }) => [
+        styles.button,
+        isActive && styles.activeButton,
+
+        pressed && styles.pressed,
+      ]}
+      onPress={onPress}
+    >
+      <Text style={[styles.buttonText, isActive && styles.activeText]}>
+        {title}
+      </Text>
+    </Pressable>
+  );
+};
+
+const styles = StyleSheet.create({
+  button: {
+
+    padding: 8,
+    borderRadius: 8,
+
+  },
+  activeButton: {
+
+    backgroundColor: '#144480',
+  },
+  activeText: {
+
+    color: '#FFFFFF',
+  },
+  buttonText: {
+    fontSize: 12.5,
+    color: '#FFF',
+    textAlign: 'center',
+  },
+  pressed: {
+
+    opacity: 0.7,
   }
-);
-
+});
